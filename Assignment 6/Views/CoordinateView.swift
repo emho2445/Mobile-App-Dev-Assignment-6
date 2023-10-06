@@ -9,8 +9,8 @@ import SwiftUI
 
 
 struct CoordinateView: View {
-    @ObservedObject var timeViewModel: TimeViewModel
-    
+    @State var lat: String = ""
+    @State var lng: String = ""
 
     var body: some View {
             ZStack(content: {
@@ -26,13 +26,13 @@ struct CoordinateView: View {
                 VStack{
                     
                     Text("Enter a LATITUDE in the field below. This is a number between -90 and 90. You may include up to 4 decimal points")
-                    TextField("Latitude", text: $timeViewModel.lat)
+                    TextField("Latitude", text: $lat)
                     
                     Text("Enter a LONGITUDE in the field below. This is a number between -180 and 180. You may include up to 4 decimal points")
-                    TextField("Longitude", text: $timeViewModel.lng)
+                    TextField("Longitude", text: $lng)
                     
-                    if timeViewModel.lat != "", timeViewModel.lng != "" {
-                        NavigationLink(destination: TimeDetailView(timeViewModel: timeViewModel)){
+                    if lat != "", lng != "" {
+                        NavigationLink(destination: TimeDetailView(lat: lat, lng: lng)){
                             Text("Search Time Details ->")
                         }
                     }
@@ -40,8 +40,8 @@ struct CoordinateView: View {
                         .frame(height: 25.0)
                     
                     Button("Clear Fields"){
-                        timeViewModel.lat = ""
-                        timeViewModel.lng = ""
+                        lat = ""
+                        lng = ""
                     }
                     
                 }

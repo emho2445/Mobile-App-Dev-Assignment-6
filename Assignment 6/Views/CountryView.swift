@@ -10,23 +10,16 @@ import SwiftUI
 import Foundation
 
 struct CountryView: View {
-    @ObservedObject var countries: CountryViewModel
-    @ObservedObject var timeViewModel: TimeViewModel
+    let countryViewModel = CountryViewModel()
     
     
     var body: some View {
-        List(countries.countries) { country in
+        List(countryViewModel.countries) { country in
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: TimeDetailView(timeViewModel: timeViewModel)){
+                    NavigationLink(destination: TimeDetailView(lat: String(country.latlng[0]), lng: String(country.latlng[1]))){
                         Text("\(country.name.common)")
-                    }.simultaneousGesture(TapGesture().onEnded{
-                        timeViewModel.lat = String(country.latlng[0])
-                        timeViewModel.lng = String(country.latlng[1])
-                    }) // We think there are issues with this modifier
+                    }
                 }
-            }
-            .task {
-                await countries.getAllCountries()
             }
         .navigationTitle("Country List")
     }

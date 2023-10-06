@@ -11,6 +11,12 @@ class CountryViewModel: ObservableObject {
     
     @Published var countries = [Country]()
     
+    init() {
+        Task {
+            await getAllCountries()
+        }
+    }
+    
     @MainActor
     func getAllCountries() async -> () {
         do {

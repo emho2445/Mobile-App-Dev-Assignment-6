@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var timeViewModel = TimeViewModel()
-    @StateObject var countryViewModel = CountryViewModel()
     
     var body: some View {
         NavigationView{
@@ -29,12 +27,12 @@ struct ContentView: View {
                     Spacer()
                         .frame(height: 50.0)
                     NavigationLink("Explore by Coordinates ->"){
-                        CoordinateView(timeViewModel: timeViewModel)
+                        CoordinateView()
                     }
                     Spacer()
                         .frame(height: 25.0)
                     NavigationLink("Explore by Country ->"){
-                        CountryView(countries: countryViewModel, timeViewModel: timeViewModel)
+                        CountryView()
                     }
                 }
 
