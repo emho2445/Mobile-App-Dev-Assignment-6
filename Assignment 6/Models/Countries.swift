@@ -7,13 +7,13 @@
 
 import Foundation
 
-//struct Country: Codable, Identifiable {
-//    var id: Int { return UUID().hashValue }
-//    var name: CountryName
-//    var latlng: [Double]
-//}
-//
-//struct CountryName: Codable {
-//    var common: String
-//    var official: String
-//}
+struct Country: Codable, Identifiable {
+    var id: Int { return UUID().hashValue }
+    var name: CountryName
+    var latlng: [Double]
+}
+
+struct CountryName: Codable {
+    var common: String
+    var official: String
+}

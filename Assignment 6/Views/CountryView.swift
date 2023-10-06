@@ -9,34 +9,13 @@ import SwiftUI
 
 import Foundation
 
-struct Country: Codable, Identifiable {
-    var id: Int { return UUID().hashValue }
-    var name: CountryName
-    var latlng: [Double]
-}
-
-struct CountryName: Codable {
-    var common: String
-    var official: String
-}
-
 struct CountryView: View {
-    @State var countries =  [Country]()
+    @ObservedObject var countries: CountryViewModel
     @ObservedObject var timeViewModel: TimeViewModel
     
-    func getAllCountries() async -> () {
-        do {
-            let url = URL(string: "https://restcountries.com/v3.1/all")!
-            let (data, _) = try await URLSession.shared.data(from: url)
-            print(data)
-            countries = try JSONDecoder().decode([Country].self, from: data)
-        } catch {
-            print("Error: \(error.localizedDescription)")
-        }
-    }
     
     var body: some View {
-            List(countries) { country in
+        List(countries.countries) { country in
                 VStack(alignment: .leading) {
                     NavigationLink(destination: TimeDetailView(timeViewModel: timeViewModel)){
                         Text("\(country.name.common)")
@@ -47,7 +26,7 @@ struct CountryView: View {
                 }
             }
             .task {
-                await getAllCountries()
+                await countries.getAllCountries()
             }
         .navigationTitle("Country List")
     }

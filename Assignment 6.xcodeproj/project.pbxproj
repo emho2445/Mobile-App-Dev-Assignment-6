@@ -17,6 +17,7 @@
 		2516E7362ACE3EF50004E290 /* Times.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E7352ACE3EF50004E290 /* Times.swift */; };
 		2516E7382ACE3F530004E290 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E7372ACE3F530004E290 /* Countries.swift */; };
 		2516E73A2ACE3F7E0004E290 /* TimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E7392ACE3F7E0004E290 /* TimeViewModel.swift */; };
+		2516E73C2ACFAE8E0004E290 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E73B2ACFAE8E0004E290 /* CountryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2516E7352ACE3EF50004E290 /* Times.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Times.swift; sourceTree = "<group>"; };
 		2516E7372ACE3F530004E290 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		2516E7392ACE3F7E0004E290 /* TimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewModel.swift; sourceTree = "<group>"; };
+		2516E73B2ACFAE8E0004E290 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				2516E7392ACE3F7E0004E290 /* TimeViewModel.swift */,
+				2516E73B2ACFAE8E0004E290 /* CountryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				2516E7362ACE3EF50004E290 /* Times.swift in Sources */,
 				2516E73A2ACE3F7E0004E290 /* TimeViewModel.swift in Sources */,
 				2516E71E2ACE3CE30004E290 /* ContentView.swift in Sources */,
+				2516E73C2ACFAE8E0004E290 /* CountryViewModel.swift in Sources */,
 				2516E7342ACE3E960004E290 /* TimeDetailView.swift in Sources */,
 				2516E71C2ACE3CE30004E290 /* Assignment_6App.swift in Sources */,
 				2516E7302ACE3DC90004E290 /* CoordinateView.swift in Sources */,
