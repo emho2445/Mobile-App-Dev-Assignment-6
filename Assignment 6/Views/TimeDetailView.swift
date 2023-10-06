@@ -48,7 +48,7 @@ struct TimeDetailView: View {
                         VStack{
                             Text("ERROR: COULD NOT LOAD TIME DETAILS")
                                 .foregroundColor(.red)
-                            Text("Instead, please enjoy this Meme that Brodie made of Emma")
+                            Text("Instead, please enjoy this meme that Brodie made of Emma in January of 2023")
                                 .frame(width: 300)
                             Image("ErrorMeme")
                             Text("This is how Emma feels after breaking the entire API server :)")
