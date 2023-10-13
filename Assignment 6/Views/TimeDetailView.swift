@@ -12,7 +12,11 @@ struct TimeDetailView: View {
     let lat: String
     let lng: String
     
+    var pushNotificationService = PushNotificationService()
+    
     var body: some View {
+    
+        
         ZStack(content: {
             Image("Earth")
                 .resizable()
@@ -20,7 +24,7 @@ struct TimeDetailView: View {
                 .edgesIgnoringSafeArea(.all)
             Rectangle()
                 .colorInvert()
-                .frame(height: 300)
+                .frame(height: 400)
                 .opacity(0.70)
             VStack{
                 
@@ -38,6 +42,21 @@ struct TimeDetailView: View {
                         Text("Nautical Twilight End: \(existingLocationTimes.results.nautical_twilight_end)")
                         Text("Astronomical Twilight Start: \(existingLocationTimes.results.astronomical_twilight_begin)")
                         Text("Astronomical Twilight End: \(existingLocationTimes.results.astronomical_twilight_end)")
+                    }
+                    Spacer()
+                        .frame(height: 20.0)
+                    if let latitude = Double(lat), let longitude = Double(lng){
+                        NavigationLink("Go to Map"){
+                            MapView(lat: latitude, lng: longitude)
+                        }
+                    }
+                    Spacer()
+                        .frame(height: 20.0)
+                    Button("Set notification for sunrise"){
+                        pushNotificationService.scheduleNotification(coordinates: "\(lat), \(lng)", subtitle: "The sun will rise at \(existingLocationTimes.results.sunrise) today", time: existingLocationTimes.results.sunrise)
+                    }
+                    Button("Set notification for sunset"){
+                        pushNotificationService.scheduleNotification(coordinates: "\(lat), \(lng)", subtitle: "The sun will set at  \(existingLocationTimes.results.sunset) today", time: existingLocationTimes.results.sunset)
                     }
                 }else{
                     ZStack{
@@ -58,7 +77,6 @@ struct TimeDetailView: View {
                 }
                 
             }
-            
         })
         .onAppear {
             timeViewModel.getSunTimes(lat: lat, lng:lng)

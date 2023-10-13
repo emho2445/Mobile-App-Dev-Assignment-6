@@ -18,6 +18,8 @@
 		2516E7382ACE3F530004E290 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E7372ACE3F530004E290 /* Country.swift */; };
 		2516E73A2ACE3F7E0004E290 /* TimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E7392ACE3F7E0004E290 /* TimeViewModel.swift */; };
 		2516E73C2ACFAE8E0004E290 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E73B2ACFAE8E0004E290 /* CountryViewModel.swift */; };
+		252CCCC82AD8C8A800E15D13 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252CCCC72AD8C8A800E15D13 /* MapView.swift */; };
+		252CCCCB2AD8E58200E15D13 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252CCCCA2AD8E58200E15D13 /* PushNotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		2516E7372ACE3F530004E290 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2516E7392ACE3F7E0004E290 /* TimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewModel.swift; sourceTree = "<group>"; };
 		2516E73B2ACFAE8E0004E290 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
+		252CCCC72AD8C8A800E15D13 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		252CCCCA2AD8E58200E15D13 /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				2516E71D2ACE3CE30004E290 /* ContentView.swift */,
+				252CCCC72AD8C8A800E15D13 /* MapView.swift */,
 				2516E72F2ACE3DC90004E290 /* CoordinateView.swift */,
 				2516E7312ACE3DFB0004E290 /* CountryView.swift */,
 				2516E7332ACE3E960004E290 /* TimeDetailView.swift */,
+				252CCCC92AD8E55900E15D13 /* Services */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +118,14 @@
 				2516E73B2ACFAE8E0004E290 /* CountryViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		252CCCC92AD8E55900E15D13 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				252CCCCA2AD8E58200E15D13 /* PushNotificationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +156,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					2516E7172ACE3CE30004E290 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -185,12 +199,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2516E7362ACE3EF50004E290 /* Times.swift in Sources */,
+				252CCCCB2AD8E58200E15D13 /* PushNotificationService.swift in Sources */,
 				2516E73A2ACE3F7E0004E290 /* TimeViewModel.swift in Sources */,
 				2516E71E2ACE3CE30004E290 /* ContentView.swift in Sources */,
 				2516E73C2ACFAE8E0004E290 /* CountryViewModel.swift in Sources */,
 				2516E7342ACE3E960004E290 /* TimeDetailView.swift in Sources */,
 				2516E71C2ACE3CE30004E290 /* Assignment_6App.swift in Sources */,
 				2516E7302ACE3DC90004E290 /* CoordinateView.swift in Sources */,
+				252CCCC82AD8C8A800E15D13 /* MapView.swift in Sources */,
 				2516E7382ACE3F530004E290 /* Country.swift in Sources */,
 				2516E7322ACE3DFB0004E290 /* CountryView.swift in Sources */,
 			);
@@ -232,9 +248,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -249,6 +267,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -290,9 +310,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -301,6 +323,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -316,6 +340,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Assignment 6/Assignment_6.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Assignment 6/Preview Content\"";
 				DEVELOPMENT_TEAM = SQG5S96FV5;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -331,10 +356,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ATLS4120.Assignment-6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,6 +379,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Assignment 6/Assignment_6.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Assignment 6/Preview Content\"";
 				DEVELOPMENT_TEAM = SQG5S96FV5;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -369,10 +395,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ATLS4120.Assignment-6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
